@@ -1,3 +1,3 @@
 # Movie App 2023
 
-Cloning with React
+Movie app cloned with React
