@@ -1,19 +1,41 @@
 import React from 'react';
 
-function Movie(info) {
-  const { title } = info;
-  return <h1>'{title}'</h1>
+function Movie({ title, image }) {
+  return (
+    <>
+      <h1>'{title}'</h1>
+      <img src={image} alt='moiveImage'/>
+    </>
+  );
 }
+
+const movieLike = [
+  {
+    title: 'Interstellar',
+    image: '/image0.png',
+  },
+  {
+    title: 'The Flash',
+    image: '/image1.png',
+  },
+  {
+    title: 'Elemental',
+    image: '/image2.png',
+  },
+  {
+    title: 'Transformers',
+    image: '/image3.png',
+  },
+  {
+    title: 'Guardians of the Galaxy',
+    image: '/image4.png',
+  },
+]
 
 function App() {
   return (
     <div>
-      <h1>Hello World!</h1>
-      <Movie title='Interstellar' />
-      <Movie title='The Flash' />
-      <Movie title='Elemental' />
-      <Movie title='Transformers' />
-      <Movie title='Guardians of the Galaxy' />
+      {movieLike.map(movie => (<Movie title={movie.title} image={movie.image} />))}
     </div>
   );
 }
