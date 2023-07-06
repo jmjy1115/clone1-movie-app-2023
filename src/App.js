@@ -9,7 +9,7 @@ function Movie({ title, image }) {
   );
 }
 
-const movieLike = [
+const movieList = [
   {
     title: 'Interstellar',
     image: '/image0.png',
@@ -32,10 +32,14 @@ const movieLike = [
   },
 ]
 
+function renderMovie(movie) {
+  return <Movie title={movie.title} image={movie.image} />
+}
+
 function App() {
   return (
     <div>
-      {movieLike.map(movie => (<Movie title={movie.title} image={movie.image} />))}
+      {movieList.map(renderMovie)}
     </div>
   );
 }
