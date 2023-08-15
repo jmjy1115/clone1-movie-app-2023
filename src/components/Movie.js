@@ -4,12 +4,12 @@ import './Movie.css';
 import { Link } from 'react-router-dom';
 
 function Moive({ year, title, summary, poster, genres }) {
-  const saveStateValues = ( year, title, summary, poster, genres ) => {
-    localStorage.setItem("year", year);
-    localStorage.setItem("title", title);
-    localStorage.setItem("summary", summary);
-    localStorage.setItem("poster", poster);
-    localStorage.setItem("genres", genres);
+  const saveStateValues = (inputYear, inputTitle, inputSummary, inputPoster, inputGenres) => {
+    localStorage.setItem("year", inputYear);
+    localStorage.setItem("title", inputTitle);
+    localStorage.setItem("summary", inputSummary);
+    localStorage.setItem("poster", inputPoster);
+    localStorage.setItem("genres", inputGenres);
   };
 
   return (
