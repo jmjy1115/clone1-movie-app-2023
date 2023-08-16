@@ -2,21 +2,22 @@ import React from "react";
 import PropTypes from 'prop-types';
 import './Movie.css';
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from "react";
 
 function Moive({ year, title, summary, poster, genres }) {
-  const saveStateValues = (inputYear, inputTitle, inputSummary, inputPoster, inputGenres) => {
-    localStorage.setItem("year", inputYear);
-    localStorage.setItem("title", inputTitle);
-    localStorage.setItem("summary", inputSummary);
-    localStorage.setItem("poster", inputPoster);
-    localStorage.setItem("genres", inputGenres);
-  };
+  const [movie, setMovie] = useState({
+    year: year,
+    title: title,
+    summary: summary,
+    poster: poster,
+    genres: genres,
+  });
 
   return (
     <div className="movie">
       <Link
         to={{ pathname: '/movie-detail' }}
-        onClick={() => saveStateValues(year, title, summary, poster, genres)}
+        onClick={() => localStorage.setItem('movie', JSON.stringify(movie))}
       >
         <img src={poster} alt={title} title={title}></img>
         <div className="movie__data">
@@ -30,7 +31,6 @@ function Moive({ year, title, summary, poster, genres }) {
           <p className="movie__summary">{summary.slice(0, 180)}...</p>
         </div>
       </Link>
-      
     </div>
   );
 }

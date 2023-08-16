@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 function Detail() {
-  const year = localStorage.getItem("year");
-  const title = localStorage.getItem("title");
-  const summary = localStorage.getItem("summary");
-  const poster = localStorage.getItem("poster");
-  const genres = localStorage.getItem("genres").split(",");
+  const savedMovie = localStorage.getItem('movie');
+  const { year, title, summary, poster, genres } = savedMovie
+    ? JSON.parse(savedMovie)
+    : { year: null, title: '', summary: '', poster: '', genres: [] };
 
-  localStorage.clear();
+  useEffect(() => {
+    return () => {
+      localStorage.removeItem('movie');
+    };
+  }, []);
 
   return (
     <div>
@@ -16,7 +19,7 @@ function Detail() {
         <h3>{title}</h3>
         <h3>{year}</h3>
         <ul>
-          {genres.map((genre, index) => {
+          {genres === undefined ? false : genres.map((genre, index) => {
             return <li key={index} className="movie__genre">{genre}</li>
           })}
         </ul>
