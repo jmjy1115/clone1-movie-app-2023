@@ -1,0 +1,25 @@
+.detail {
+  width: 50rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 1rem auto;
+}
+
+.detail-genres {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-genres div {
+  margin: 0 1rem;
+}
+
+.detail-summary {
+  width: 30rem;
+  margin: 2rem;
+  text-align: justify;
+}
